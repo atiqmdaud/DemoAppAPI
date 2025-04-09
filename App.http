@@ -1,0 +1,48 @@
+@App_HostAddress = http://localhost:5250
+
+GET {{App_HostAddress}}/items
+Accept: application/json
+X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
+
+###
+
+GET {{App_HostAddress}}/items/2
+Accept: application/json
+X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
+
+###
+
+POST {{App_HostAddress}}/items
+Content-Type: application/json
+X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
+
+{
+  "Name": "Test Item",
+  "Description": "This is a test item."
+}
+
+###
+
+PUT {{App_HostAddress}}/items/4
+Content-Type: application/json
+X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
+
+{
+  "Name": "Test Item Updated",
+  "Description": "This is a test item updated."
+}
+
+###
+
+DELETE  {{App_HostAddress}}/items/4
+Accept: application/json
+X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
+
+###
+
+POST {{App_HostAddress}}/apikeys/generate?user=user1
+Accept: application/json
+
+###
+
+
