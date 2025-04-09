@@ -34,7 +34,7 @@ public class ApiKeyMiddleware
         }
 
         // Check remaining limit
-        if (apiKeyRecord.RemainingLimit <= 960)
+        if (apiKeyRecord.RemainingLimit <= 0)
         {
             context.Response.StatusCode = 429; // Too Many Requests
             await context.Response.WriteAsync("API limit exceeded for this key");
