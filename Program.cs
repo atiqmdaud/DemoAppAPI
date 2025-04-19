@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
+app.UseMiddleware<LoggingMiddleware2>();
 app.UseMiddleware<ApiKeyMiddleware>();
 
 ItemEndpoints.MapItemEndpoints(app);

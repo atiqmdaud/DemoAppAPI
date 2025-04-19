@@ -6,7 +6,7 @@ X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
 
 ###
 
-GET {{App_HostAddress}}/items/2
+GET {{App_HostAddress}}/items/1
 Accept: application/json
 X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
 
@@ -17,24 +17,24 @@ Content-Type: application/json
 X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
 
 {
-  "Name": "Test Item",
+  "Name": "Test Item 3",
   "Description": "This is a test item."
 }
 
 ###
 
-PUT {{App_HostAddress}}/items/4
+PUT {{App_HostAddress}}/items/1004
 Content-Type: application/json
 X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
 
 {
-  "Name": "Test Item Updated",
+  "Name": "Test Item Updated 1004",
   "Description": "This is a test item updated."
 }
 
 ###
 
-DELETE  {{App_HostAddress}}/items/4
+DELETE  {{App_HostAddress}}/items/1004
 Accept: application/json
 X-API-KEY: a0834e82-630e-4754-8f85-a9eb3f921b4e
 
