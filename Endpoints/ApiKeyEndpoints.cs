@@ -13,17 +13,25 @@ public static class ApiKeyEndpoints
             "/apikeys/generate",
             async (AppDbContext db, string user) =>
             {
-                var apiKey = new ApiKey
+                try
                 {
-                    Key = Guid.NewGuid().ToString(),
-                    User = user,
-                    RemainingLimit = 1000, // Set initial request limit
-                    CreatedAt = DateTime.UtcNow,
-                    IsActive = true,
-                };
-                db.ApiKeys.Add(apiKey);
-                await db.SaveChangesAsync();
-                return Results.Created($"/apikeys/{apiKey.Id}", apiKey);
+                    var apiKey = new ApiKey
+                    {
+                        Key = Guid.NewGuid().ToString(),
+                        User = user,
+                        RemainingLimit = 1000, // Set initial request limit
+                        CreatedAt = DateTime.UtcNow,
+                        IsActive = true,
+                    };
+                    db.ApiKeys.Add(apiKey);
+                    await db.SaveChangesAsync();
+                    return Results.Created($"/apikeys/{apiKey.Id}", apiKey);
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception (optional)
+                    return Results.Problem("An error occurred while generating the API key.");
+                }
             }
         );
     }
